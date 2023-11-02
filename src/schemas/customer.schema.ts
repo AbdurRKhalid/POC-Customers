@@ -1,4 +1,4 @@
-import { Prop, Schema } from "@nestjs/mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 
 @Schema({
     timestamps: { createdAt: 'created' }
@@ -23,3 +23,5 @@ export class Customer {
     @Prop({ required: true })
     email: string;
 }
+
+export const CustomerSchema = SchemaFactory.createForClass(Customer);
