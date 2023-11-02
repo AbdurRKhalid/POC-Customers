@@ -3,4 +3,6 @@ export class Customer {
     lastName: string;
     type: string;
     token: string;
+    password: string;
+    email: string;
 }
