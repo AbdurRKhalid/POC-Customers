@@ -15,7 +15,11 @@ export class CustomerService {
         return customer.save();
     }
 
-    async findAll() {
+    async findAll(): Promise<CustomerDocument[]> {
         return this.customerModel.find();
+    }
+
+    async delete(id: string) {
+        return this.customerModel.deleteOne({_id: id});
     }
 }
