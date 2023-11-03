@@ -22,4 +22,8 @@ export class CustomerService {
     async delete(id: string) {
         return this.customerModel.deleteOne({_id: id});
     }
+
+    async findOne(id: string): Promise<CustomerDocument> {
+        return this.customerModel.findOne({_id: id});
+    }
 }
