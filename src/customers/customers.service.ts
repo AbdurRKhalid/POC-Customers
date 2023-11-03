@@ -10,8 +10,12 @@ export class CustomerService {
         @InjectModel(Customer.name) private readonly customerModel: Model<CustomerDocument>
     ) {}
 
-    async addCustomer(addCustomerDto: AddCustomerDto) {
+    async addCustomer(addCustomerDto: AddCustomerDto): Promise<CustomerDocument> {
         const customer = new this.customerModel(addCustomerDto);
         return customer.save();
+    }
+
+    async findAll() {
+        return this.customerModel.find();
     }
 }
