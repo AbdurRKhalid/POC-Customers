@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
 import { CustomerService } from "./customers.service";
 import { AddCustomerDto } from "src/dto/add-customer.dto";
 
@@ -20,5 +20,10 @@ export class CustomerController {
     @Get(':id')
     findById(@Param() params: any) {
         return this.customerService.findOne(params.id);
+    }
+
+    @Delete('id')
+    deleteById(@Param() params: any) {
+        return this.customerService.delete(params.id);
     }
 }
